@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block head %}
+<title>Response | Ancor Intelligent</title>
+{% endblock %}
+{% block body %}
+<header>
+    <nav class="navbar">
+        <div class="container">
+          <a class="navbar-brand mx-auto text-dark fw-medium display-1" href="/">Ancor Intelligent</a>
+        </div>
+      </nav>
+</header>
+<main class="container d-flex flex-column justify-content-center align-content-center">
+    <section class="hero mb-3">
+        <p class="fs-1 fw-medium space-none text-center">Request again! We'd love too :)</p>
+    </section>
+    <form class="w-100 mb-3 d-flex flex-column" action="/ask-gpt" id="ask-gpt" method="POST">
+        <div class="input-group w-100">
+            <input type="text" class="form-control border-end-0 shadow-none border-light" name="ask-gpt" autocomplete="off" placeholder="Ask GPT anything about this world..." required>
+            <span class="input-group-text border-light"><button class="custom custom-button" type="submit"><i class="bi bi-arrow-right"></i></button></span>
+        </div>
+    </form>
+    <form class="w-100 mb-3 d-flex flex-column d-none" action="/edit-mistake" id="edit-mistake" method="POST">
+        <div class="input-group w-100">
+            <input type="text" class="form-control border-end-0 shadow-none border-light" name="edit-mistake" autocomplete="off" placeholder="Find mistakes in spelling!" required>
+            <span class="input-group-text border-light"><button class="custom custom-button" type="submit"><i class="bi bi-arrow-right"></i></button></span>
+        </div>
+    </form>
+    <form class="w-100 mb-3 d-flex flex-column hide d-none" action="/create-image" id="create-image" method="POST">
+        <div class="input-group w-100">
+            <input type="text" class="form-control border-end-0 shadow-none border-light" name="create-image" autocomplete="off" placeholder="Create image with your imagination. ">
+            <span class="input-group-text border-light"><button class="custom custom-button" type="submit"><i class="bi bi-arrow-right"></i></button></span>
+        </div>
+    </form>
+    <div class="custom-btn-group w-100 d-flex flex-row justify-content-center" role="group" aria-label="Basic example">
+        <button type="button" class="btn fw-medium active" id="gpt" onclick="showGPT(this.id)">Ask with GPT</button>
+        <button type="button" class="btn fw-medium" id="mistake" onclick="showMistake(this.id)">Edit mistake</button>
+        <button type="button" class="btn fw-medium" id="image" onclick="showImage(this.id)">Create image</button>
+    </div>
+    <hr class="space-none mt-3">
+    <p class="fs-1 fw-medium space-none text-center mt-2 respone-heading">Here is our response:</p>
+    {% if completion %}
+    <p class="fs-3 fw-medium response-label space-none">Your request: <span class="fw-normal space-none px-1 text-black" style="color: black">{{content}}</span></p>
+    <div class="w-100 rounded-2 bg-white p-3 mt-3">
+        <p class="fw-normal fs-5 space-none">{{completion}}</p>
+    </div>
+    {% elif mistake %}
+    <p class="fs-3 fw-medium response-label space-none">Your sentences:</p>
+    <div class="w-100 rounded-2 bg-white p-3 mt-3">
+        <p class="fw-normal fs-5 space-none">{{content}}</p>
+    </div>
+    <p class="fs-3 fw-medium response-label space-none mt-3">Fixed sentences:</p>
+    <div class="w-100 rounded-2 bg-white p-3 mt-3">
+        <p class="fw-normal fs-5 space-none">{{mistake}}</p>
+    </div>
+    {% elif image %}
+    <p class="fs-3 fw-medium response-label space-none">Your request: <span class="fw-normal space-none px-1 text-black" style="color: black">{{content}}</span></p>
+    <div class="rounded-2 bg-white p-3 my-3 ratio-1x1 mx-auto ratio-1x1" style="width: 40%;">
+        <img src="{{image}}" class="object-fit-cover w-100">
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

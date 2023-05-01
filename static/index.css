@@ -1,0 +1,57 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #f3e6e8;
+    background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
+}
+.space-none{
+    margin: 0;
+    padding: 0;
+}
+.custom.custom-button{
+    border: 0;
+    outline: 0;
+    box-shadow: 0;
+    background-color: inherit;
+}
+.custom.border-dark{
+    border: 1px solid #333333;
+}
+.input-group-text{
+    background-color: #FFFFFF !important;
+    border-left: 0 !important;
+}
+.navbar-brand, .hero p, .respone-heading, .response-label{
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.custom-btn-group button, .custom-btn-group button:hover, .custom-btn-group button:active{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.custom-btn-group button{
+    margin-inline: 0.5em;
+    padding: 0.5em auto;
+    border-radius: 0.4em !important;
+    color: #0d324d;
+    font-size: 1.1em;
+    transition: 0.2s;
+}
+.custom-btn-group button:hover, .custom-btn-group button:active{
+    color: #6e9dbf !important;
+}
+.custom-btn-group button.active{
+    background-color: #0d324d !important;
+    color: #FFFFFF;
+}
+.custom-btn-group button.active:hover{
+    color: #cccccc !important;
+}

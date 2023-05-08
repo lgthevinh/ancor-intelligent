@@ -14,7 +14,8 @@ def chat_completion(content):
     headers = {
         "content-type": "application/json",
         "X-RapidAPI-Key": "9b8b9397f1msh626810dee5e8592p17beeajsnce05ecc211c7",
-        "X-RapidAPI-Host": "openai80.p.rapidapi.com"
+        "X-RapidAPI-Host": "openai80.p.rapidapi.com",
+        "Accept-Encoding": "deflate"
     }
     response = requests.post(url, json=payload, headers=headers)
     json_data = response.json()
@@ -30,7 +31,8 @@ def fix_spelling_mistake(content):
     headers = {
         "content-type": "application/json",
         "X-RapidAPI-Key": "9b8b9397f1msh626810dee5e8592p17beeajsnce05ecc211c7",
-        "X-RapidAPI-Host": "openai80.p.rapidapi.com"
+        "X-RapidAPI-Host": "openai80.p.rapidapi.com",
+        "Accept-Encoding": "deflate"
     }
     response = requests.post(url, json=payload, headers=headers)
     json_data = response.json()
@@ -46,7 +48,8 @@ def create_image(content):
     headers = {
         "content-type": "application/json",
         "X-RapidAPI-Key": "9b8b9397f1msh626810dee5e8592p17beeajsnce05ecc211c7",
-        "X-RapidAPI-Host": "openai80.p.rapidapi.com"
+        "X-RapidAPI-Host": "openai80.p.rapidapi.com",
+        "Accept-Encoding": "deflate"
     }
     response = requests.post(url, json=payload, headers=headers)
     json_data = response.json()
